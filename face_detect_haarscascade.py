@@ -1,3 +1,8 @@
+# Detecting face on webcam
+# and send the center coordinate
+# of the face to Serial Port
+# by: Judhi P. Nov 2024
+
 import cv2
 import serial
 import time
@@ -46,7 +51,7 @@ try:
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
             # Send center coordinates over serial
-            print(f"{centerX_percent}\n")
+            print(f"{centerX_percent},{centerY_percent}\n")
             ser.write(f"{centerX_percent},{centerY_percent}\n".encode())
             time.sleep(0.1)
 
